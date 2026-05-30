@@ -16,7 +16,7 @@ export default function Home() {
     >
       
       {/* 關鍵：這就是你要的置中白色實心懸浮框 div */}
-      <div className="w-full max-w-[360px] h-[640px] bg-[#ffffff] relative flex flex-col shadow-2xl p-6 md:p-10 rounded-2xl overflow-y-auto overflow-x-hidden border-0">
+      <div className="w-full max-w-[400px] h-[640px] bg-[#ffffff] relative flex flex-col shadow-2xl p-6 md:p-10 rounded-[32px] overflow-hidden border-0">
         
         {/* 所有的測驗畫面組件（Component）都應該被放在這個白色區塊裡面 */}
         {stage === 'start' && <StartScreen />}
