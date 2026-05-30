@@ -1,3 +1,45 @@
+/* 把 @import 放在絕對的第 1 行 */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Noto+Sans+TC:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-text: #401900;
+  --accent-brown: #B7784E;
+  --mochi-yellow: #FFE88D;
+}
+
+body {
+  font-family: "jf-openhuninn", "Varela Round", "Noto Sans TC", sans-serif;
+  color: var(--primary-text);
+  background-color: #f8f1e7;
+}
+
+/* 下面繼續放你原本檔案裡的其他 CSS (如果有殘留的話) */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 導入類似粉圓體的圓潤字型 */
+
+:root {
+  --primary-text: #401900;
+  --accent-brown: #B7784E;
+  --mochi-yellow: #FFE88D;
+}
+
+body {
+  /* 設定全域字體，優先使用粉圓體 */
+  font-family: "jf-openhuninn", "Varela Round", "Noto Sans TC", sans-serif;
+  color: var(--primary-text);
+  background-color: #f8f1e7; /* 淡淡的米色底，讓整體更溫柔 */
+}
+
+/* 按鈕按下的縮放特效縮寫 */
+.btn-active-effect:active {
+  transform: scale(0.96);
+  transition: transform 0.1s;
+}
