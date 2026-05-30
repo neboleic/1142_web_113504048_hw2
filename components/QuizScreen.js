@@ -6,7 +6,7 @@ const QUESTIONS = [
   {
     id: 1,
     title: '題目一',
-    description: '敘述敘述敘述敘述敘述',
+    description: '老師請原諒我這個期末水深火熱我會繼續進化到你改作業的前一刻的',
     options: [
       { text: '選項一', type: 'A' },
       { text: '選項二', type: 'B' },
