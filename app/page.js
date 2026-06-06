@@ -15,7 +15,7 @@ export default function Home() {
     >
       
       {/* 這裡移除了 border-4 以及 border 顏色，僅保留圓角與陰影 */}
-      <div className="w-full max-w-[400px] h-[660px] bg-[#FFFEF9] relative flex flex-col shadow-[0_20px_50px_rgba(183,120,78,0.3)] p-6 md:p-8 rounded-[40px] overflow-hidden pd-6">
+      <div className="w-full max-w-[400px] h-[660px] bg-[#FFFEF9] relative flex flex-col shadow-[0_20px_50px_rgba(183,120,78,0.3)] p-6 md:p-8 rounded-[40px] overflow-hidden">
         
         {stage === 'start' && <StartScreen />}
         {stage === 'quiz' && <QuizScreen />}
