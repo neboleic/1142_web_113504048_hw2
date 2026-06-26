@@ -2,45 +2,46 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request) {
   try {
-    const body = await request.json();
-    const { answers } = body;
+    const { answers } = await request.json();
 
-    // 1. 找出得分最高的維度
-    let highestScoreType = 'A';
+    let topType = 'A';
     let maxScore = -1;
-
     for (const [type, score] of Object.entries(answers)) {
       if (score > maxScore) {
         maxScore = score;
-        highestScoreType = type;
+        topType = type;
       }
     }
 
-    // 2. 設定 4 種最終結果的資料
     const resultsData = {
-      A: { 
-        title: '【傳說中的勇者】', 
-        description: '你充滿勇氣，喜歡直面挑戰！不管遇到什麼史萊姆或魔王，你的第一反應永遠是拔劍。' 
+      A: {
+        title: '抹茶麻糬',
+        image: '/matchamochi.png',
+        description: '沉穩內斂的你，喜歡用自己的步調過生活。看似安靜，卻總在關鍵時刻給出最穩的判斷，是朋友默默信賴的存在。',
       },
-      B: { 
-        title: '【智慧的魔法師】', 
-        description: '你總能冷靜思考，找出最佳解方！對你來說，知識與策略比蠻力更重要。' 
+      B: {
+        title: '花生麻糬',
+        image: '/peanutmochi.png',
+        description: '活力滿滿的你是天生的氣氛擔當！走到哪都把熱情和笑聲帶到哪，大家都忍不住被你感染、想靠近你。',
       },
-      C: { 
-        title: '【神秘的盜賊】', 
-        description: '你行動敏捷，不按牌理出牌！沒有你打不開的寶箱，也沒有你逃不掉的陷阱。' 
+      C: {
+        title: '紅豆麻糬',
+        image: '/redbeanmochi.png',
+        description: '溫暖體貼的你總是把身邊的人放在心上。你的溫柔像剛煮好的紅豆湯，是所有人最安心的依靠。',
       },
-      D: { 
-        title: '【溫柔的治癒師】', 
-        description: '你心思細膩，總是照顧著身邊的人！在團隊中，你是所有人最堅強的後盾。' 
+      D: {
+        title: '芝麻麻糬',
+        image: '/sesamemochi.png',
+        description: '低調卻有深度的你，外表內斂，內在卻藏著滿滿的想法與內涵。相處越久，越能發現你獨特的魅力。',
       },
     };
 
-    const finalResult = resultsData[highestScoreType] || resultsData['A'];
-
-    // 3. 將結果回傳給前端
+    const finalResult = resultsData[topType] || resultsData['A'];
     return NextResponse.json({ success: true, data: finalResult });
   } catch (error) {
-    return NextResponse.json({ success: false, message: 'Server Error' }, { status: 500 });
+    return NextResponse.json(
+      { success: false, message: 'Server Error' },
+      { status: 500 }
+    );
   }
 }
